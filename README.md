@@ -1,11 +1,13 @@
-# 🌌 NatiJohn
+# NATE
 
-A clean, space-themed landing portal.
+welcome to this mess.
 
-🚀 **Live Orbit:** [natijohn.site](https://natijohn.site)
+this is some random BS I made with ChatGPT because apparently I had nothing better to do.
 
----
+No master plan.  
+No inspirational speech.  
+Just pixels, questionable decisions, and a suspicious amount of tabs.
 
-### 🛸 Status
-* **Current State:** Loading / Under Construction...
-* **Tech:** Simple HTML + Tailwind CSS
+🌐 https://natijohn.site
+
+built with ChatGPT, caffeine, and pure nonsense.

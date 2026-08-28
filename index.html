@@ -1,75 +1,1602 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- =========================
+       BASIC SEO
+  ========================== -->
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- SEO Meta Tags -->
-  <title>NatiJohn | Under Construction</title>
-  <meta name="description" content="NatiJohn official website. Loading and initializing the digital portal.">
-  <meta name="keywords" content="natijohn, natijohn site, natijohn.site, natijohn dev">
-  <meta name="robots" content="index, follow">
-  
-  <!-- Open Graph (For Discord, Telegram, Twitter link previews) -->
-  <meta property="og:title" content="NatiJohn">
-  <meta property="og:description" content="Loading the digital portal...">
-  <meta property="og:url" content="https://natijohn.site">
-  <meta property="og:type" content="website">
 
-  <!-- Tailwind CSS CDN -->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Nate — welcome to this mess</title>
+
+  <meta
+    name="description"
+    content="Welcome to Nate's little corner of the internet. Random ideas, questionable decisions, BS checking, and a website made partly with ChatGPT."
+  >
+
+  <meta
+    name="keywords"
+    content="Nate, Nati, Nathan, Natty, portfolio, personal website, internet, BS checker"
+  >
+
+  <meta name="author" content="Nate">
+
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+  <link
+    rel="canonical"
+    href="https://natijohn.site/"
+  >
+
+  <!-- Open Graph -->
+
+  <meta
+    property="og:title"
+    content="Nate — welcome to this mess"
+  >
+
+  <meta
+    property="og:description"
+    content="A questionable little corner of the internet."
+  >
+
+  <meta
+    property="og:url"
+    content="https://natijohn.site/"
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:site_name"
+    content="Nate"
+  >
+
+  <!-- Twitter / X -->
+
+  <meta
+    name="twitter:card"
+    content="summary"
+  >
+
+  <meta
+    name="twitter:title"
+    content="Nate — welcome to this mess"
+  >
+
+  <meta
+    name="twitter:description"
+    content="Random internet BS, questionable ideas and one unnecessarily dramatic website."
+  >
+
+  <!-- Favicon -->
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="nxte.png"
+  >
+
+  <!-- Fonts -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+  crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Tailwind CDN -->
+
   <script src="https://cdn.tailwindcss.com"></script>
+
+
   <style>
-    @keyframes orbit {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+
+    * {
+      box-sizing: border-box;
     }
-    .animate-orbit {
-      animation: orbit 8s linear infinite;
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
     }
+
+    body {
+      background: #0c0c0c;
+      color: #f4f4ef;
+
+      font-family:
+        "Space Grotesk",
+        sans-serif;
+    }
+
+    .mono {
+      font-family:
+        "DM Mono",
+        monospace;
+    }
+
+
+    /* =========================
+       BACKGROUND
+    ========================== */
+
+    .noise {
+      position: fixed;
+
+      inset: 0;
+
+      pointer-events: none;
+
+      opacity: .04;
+
+      z-index: 30;
+
+      background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+
+    .orb {
+      position: fixed;
+
+      width: 430px;
+      height: 430px;
+
+      border-radius: 50%;
+
+      background: #d8ff38;
+
+      filter: blur(120px);
+
+      opacity: .1;
+
+      right: -150px;
+      top: -160px;
+
+      pointer-events: none;
+    }
+
+
+    /* =========================
+       MAIN APP
+    ========================== */
+
+    .app {
+      width: 100%;
+      height: 100dvh;
+
+      min-height: 500px;
+
+      display: grid;
+
+      grid-template-rows:
+        70px
+        1fr
+        55px;
+
+      padding:
+        0 28px;
+    }
+
+
+    .topbar {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      border-bottom:
+        1px solid #292929;
+    }
+
+
+    .logo {
+      font-size: 18px;
+
+      font-weight: 700;
+
+      letter-spacing: -.08em;
+    }
+
+
+    .logo span {
+      color: #d8ff38;
+    }
+
+
+    .counter {
+      color: #555;
+
+      font-size: 12px;
+    }
+
+
+    /* =========================
+       SLIDES
+    ========================== */
+
+    .stage {
+      position: relative;
+
+      min-height: 0;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+    }
+
+
+    .slides {
+      position: relative;
+
+      width:
+        min(1100px, 100%);
+
+      height:
+        min(650px, 82vh);
+
+      min-height: 400px;
+    }
+
+
+    .slide {
+      position: absolute;
+
+      inset: 0;
+
+      display: none;
+    }
+
+
+    .slide.active {
+      display: grid;
+
+      animation:
+        enter .45s
+        cubic-bezier(.2,.8,.2,1);
+    }
+
+
+    @keyframes enter {
+
+      from {
+        opacity: 0;
+
+        transform:
+          translateX(35px);
+      }
+
+      to {
+        opacity: 1;
+
+        transform:
+          translateX(0);
+      }
+
+    }
+
+
+    /* =========================
+       HOME
+    ========================== */
+
+    .home {
+
+      grid-template-columns:
+        1.25fr .75fr;
+
+      gap: 50px;
+
+      align-items: center;
+    }
+
+
+    .eyebrow {
+
+      color: #555;
+
+      font-size: 12px;
+
+      margin-bottom: 22px;
+    }
+
+
+    .hero-name {
+
+      font-size:
+        clamp(70px, 12vw, 165px);
+
+      line-height: .78;
+
+      font-weight: 700;
+
+      letter-spacing: -.09em;
+
+      margin: 0;
+    }
+
+
+    .hero-name span {
+
+      color: #d8ff38;
+    }
+
+
+    .intro {
+
+      margin-top: 35px;
+
+      max-width: 590px;
+
+      font-size:
+        clamp(17px, 2vw, 23px);
+
+      color: #888;
+
+      line-height: 1.35;
+    }
+
+
+    .intro b {
+      color: white;
+    }
+
+
+    .changing {
+
+      display: inline-block;
+
+      color: #d8ff38;
+
+      min-width: 5ch;
+    }
+
+
+    .side-box {
+
+      border-left:
+        1px solid #333;
+
+      padding-left: 30px;
+    }
+
+
+    .side-box .big {
+
+      font-size:
+        clamp(35px, 5vw, 65px);
+
+      font-weight: 700;
+
+      line-height: .95;
+
+      letter-spacing: -.06em;
+
+      margin-bottom: 20px;
+    }
+
+
+    .side-box p {
+
+      color: #666;
+
+      line-height: 1.5;
+
+      max-width: 280px;
+    }
+
+
+    /* =========================
+       PANELS
+    ========================== */
+
+    .panel {
+
+      display: grid;
+
+      grid-template-columns:
+        120px 1fr;
+
+      gap: 35px;
+
+      align-items: center;
+
+      height: 100%;
+    }
+
+
+    .panel-number {
+
+      font-size: 12px;
+
+      color: #555;
+
+      align-self: start;
+
+      padding-top: 30px;
+    }
+
+
+    .panel-content {
+
+      border-top:
+        1px solid #333;
+
+      border-bottom:
+        1px solid #333;
+
+      padding:
+        45px 0;
+    }
+
+
+    .panel-title {
+
+      font-size:
+        clamp(48px, 8vw, 100px);
+
+      line-height: .85;
+
+      letter-spacing: -.07em;
+
+      font-weight: 700;
+
+      margin-bottom: 30px;
+    }
+
+
+    .panel-copy {
+
+      color: #888;
+
+      font-size: 18px;
+
+      max-width: 550px;
+
+      line-height: 1.45;
+    }
+
+
+    /* =========================
+       BS CHECKER
+    ========================== */
+
+    .bs-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          2,
+          minmax(150px, 250px)
+        );
+
+      gap: 10px;
+
+      margin-top: 35px;
+    }
+
+
+    .bs-item {
+
+      border:
+        1px solid #292929;
+
+      padding: 15px;
+
+      color: #777;
+
+      font-size: 13px;
+
+      transition: .2s;
+    }
+
+
+    .bs-item:hover {
+
+      border-color:
+        #d8ff38;
+
+      color:
+        #d8ff38;
+
+      transform:
+        translateY(-3px);
+    }
+
+
+    .bs-item strong {
+
+      display: block;
+
+      color: #eee;
+
+      margin-bottom: 5px;
+    }
+
+
+    /* =========================
+       CONTACT
+    ========================== */
+
+    .links {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      margin-top: 35px;
+    }
+
+
+    .link {
+
+      border:
+        1px solid #333;
+
+      padding:
+        13px 18px;
+
+      color: #ddd;
+
+      text-decoration: none;
+
+      transition: .2s;
+    }
+
+
+    .link:hover {
+
+      background:
+        #d8ff38;
+
+      border-color:
+        #d8ff38;
+
+      color:
+        #0c0c0c;
+
+      transform:
+        translateY(-3px);
+    }
+
+
+    .wallet {
+
+      margin-top: 30px;
+
+      max-width: 700px;
+
+      border:
+        1px solid #292929;
+
+      padding: 15px;
+    }
+
+
+    .wallet-label {
+
+      font-size: 10px;
+
+      color: #555;
+
+      margin-bottom: 7px;
+    }
+
+
+    .wallet-address {
+
+      font-size: 11px;
+
+      color: #888;
+
+      word-break: break-all;
+
+      cursor: pointer;
+    }
+
+
+    .wallet-address:hover {
+
+      color:
+        #d8ff38;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    .footer {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      border-top:
+        1px solid #292929;
+
+      color: #555;
+
+      font-size: 11px;
+    }
+
+
+    .controls {
+
+      display: flex;
+
+      gap: 7px;
+    }
+
+
+    .arrow {
+
+      width: 35px;
+      height: 30px;
+
+      border:
+        1px solid #292929;
+
+      background:
+        transparent;
+
+      color: #777;
+
+      cursor: pointer;
+
+      transition: .2s;
+    }
+
+
+    .arrow:hover {
+
+      color:
+        #d8ff38;
+
+      border-color:
+        #d8ff38;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 750px) {
+
+      .app {
+
+        padding:
+          0 18px;
+
+        grid-template-rows:
+          60px
+          1fr
+          50px;
+      }
+
+
+      .slides {
+
+        height:
+          calc(100vh - 150px);
+
+        min-height:
+          400px;
+      }
+
+
+      .home {
+
+        grid-template-columns:
+          1fr;
+
+        gap: 30px;
+      }
+
+
+      .hero-name {
+
+        font-size:
+          clamp(
+            65px,
+            20vw,
+            120px
+          );
+      }
+
+
+      .side-box {
+
+        border-left: 0;
+
+        border-top:
+          1px solid #333;
+
+        padding-left: 0;
+
+        padding-top: 22px;
+      }
+
+
+      .side-box .big {
+
+        font-size: 38px;
+      }
+
+
+      .panel {
+
+        grid-template-columns:
+          1fr;
+
+        gap: 0;
+      }
+
+
+      .panel-number {
+
+        padding-top: 0;
+
+        margin-bottom: 15px;
+      }
+
+
+      .panel-content {
+
+        padding:
+          25px 0;
+      }
+
+
+      .panel-title {
+
+        font-size:
+          clamp(
+            55px,
+            17vw,
+            90px
+          );
+      }
+
+
+      .panel-copy {
+
+        font-size: 16px;
+      }
+
+
+      .bs-grid {
+
+        grid-template-columns:
+          1fr 1fr;
+      }
+
+
+      .wallet-address {
+
+        font-size: 9px;
+      }
+
+    }
+
   </style>
+
 </head>
-<body class="bg-slate-950 text-slate-100 flex items-center justify-center min-h-screen overflow-hidden font-sans bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-black">
 
-  <!-- Hidden H1 for Google Crawlers SEO -->
-  <h1 class="sr-only">NatiJohn Official Website - natijohn.site</h1>
 
-  <!-- Ambient Space Dust -->
-  <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full opacity-40 animate-ping duration-1000"></div>
-  <div class="absolute bottom-1/3 right-1/4 w-1.5 h-1.5 bg-cyan-400 rounded-full opacity-60 animate-pulse"></div>
+<body>
 
-  <!-- Main Container -->
-  <div class="relative z-10 text-center px-6">
-    
-    <!-- Animated Cosmic Indicator -->
-    <div class="relative w-24 h-24 mx-auto mb-8 flex items-center justify-center">
-      <div class="absolute inset-0 border-2 border-dashed border-cyan-500/30 rounded-full animate-orbit"></div>
-      <div class="w-12 h-12 bg-gradient-to-tr from-cyan-500 to-indigo-600 rounded-full blur-sm animate-pulse shadow-[0_0_30px_rgba(6,182,212,0.5)]"></div>
-    </div>
 
-    <!-- Brand Name -->
-    <p class="text-xs font-mono tracking-[0.3em] uppercase text-cyan-400 mb-3">
-      NATIJOHN.SITE
-    </p>
+  <div class="noise"></div>
 
-    <!-- Heading -->
-    <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-500">
-      SYSTEMS OFFLINE
-    </h2>
+  <div class="orb"></div>
 
-    <!-- Subtitle -->
-    <p class="text-slate-400 max-w-md mx-auto text-sm md:text-base mb-8 font-light">
-      Loading... The portal is currently initializing.
-    </p>
 
-    <!-- Status Badge -->
-    <div class="inline-flex items-center gap-2 bg-slate-900/80 border border-slate-800 px-4 py-2 rounded-full backdrop-blur-sm">
-      <span class="w-2 h-2 bg-emerald-500 rounded-full animate-ping"></span>
-      <span class="text-xs font-mono text-slate-300 uppercase tracking-wider">Under Construction</span>
-    </div>
+  <div class="app">
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="topbar">
+
+      <div class="logo">
+
+        n<span>×</span>te
+
+      </div>
+
+
+      <div class="counter mono">
+
+        <span id="current">
+          01
+        </span>
+
+        /
+
+        04
+
+      </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         SLIDES
+    ========================== -->
+
+    <main class="stage">
+
+      <div class="slides">
+
+
+        <!-- =====================
+             01 — HOME
+        ====================== -->
+
+        <section
+          class="slide active home"
+        >
+
+          <div>
+
+            <div class="eyebrow mono">
+
+              // welcome to this mess
+
+            </div>
+
+
+            <h1 class="hero-name">
+
+              <span id="name">
+                NATE
+              </span>
+
+              <br>
+
+              IS HERE.
+
+            </h1>
+
+
+            <div class="intro">
+
+              This is some random BS
+
+              <b>
+                I made with ChatGPT.
+              </b>
+
+              I changed a bunch of stuff,
+
+              broke a bunch of stuff,
+
+              and called it a website.
+
+            </div>
+
+          </div>
+
+
+          <div class="side-box">
+
+            <div class="big">
+
+              <span
+                class="changing"
+                id="thought"
+              >
+                hmm.
+              </span>
+
+            </div>
+
+
+            <p>
+
+              No inspirational quote.
+
+              No life lesson.
+
+              No TED Talk.
+
+              Just this.
+
+            </p>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- =====================
+             02 — BS
+        ====================== -->
+
+        <section class="slide">
+
+          <div class="panel">
+
+
+            <div class="panel-number mono">
+
+              02 / BS
+
+            </div>
+
+
+            <div class="panel-content">
+
+
+              <div class="panel-title">
+
+                BS<br>
+
+                CHECKER.
+
+              </div>
+
+
+              <div class="panel-copy">
+
+                Some things just deserve
+                an immediate side-eye.
+
+              </div>
+
+
+              <div class="bs-grid">
+
+
+                <div class="bs-item">
+
+                  <strong>
+                    "easy money"
+                  </strong>
+
+                  bro.
+
+                </div>
+
+
+                <div class="bs-item">
+
+                  <strong>
+                    "100% guaranteed"
+                  </strong>
+
+                  sure buddy.
+
+                </div>
+
+
+                <div class="bs-item">
+
+                  <strong>
+                    "secret method"
+                  </strong>
+
+                  okay Batman.
+
+                </div>
+
+
+                <div class="bs-item">
+
+                  <strong>
+                    "trust me"
+                  </strong>
+
+                  that's worse.
+
+                </div>
+
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- =====================
+             03 — RANDOM
+        ====================== -->
+
+        <section class="slide">
+
+          <div class="panel">
+
+
+            <div class="panel-number mono">
+
+              03 / RANDOM
+
+            </div>
+
+
+            <div class="panel-content">
+
+
+              <div class="panel-title">
+
+                RANDOM<br>
+
+                BS.
+
+              </div>
+
+
+              <div class="panel-copy">
+
+                tabs: 47<br>
+
+                sleep: maybe<br>
+
+                plans: questionable<br>
+
+                attention span: loading<br>
+
+                brain: somewhere else
+
+                <br><br>
+
+                Currently pretending
+                everything is under control.
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- =====================
+             04 — CONTACT
+        ====================== -->
+
+        <section class="slide">
+
+          <div class="panel">
+
+
+            <div class="panel-number mono">
+
+              04 / CONTACT
+
+            </div>
+
+
+            <div class="panel-content">
+
+
+              <div class="panel-title">
+
+                SAY<br>
+
+                HI.
+
+              </div>
+
+
+              <div class="panel-copy">
+
+                Got something interesting?
+
+                Send it.
+
+                Don't write a novel.
+
+              </div>
+
+
+              <div class="links">
+
+
+                <a
+                  class="link mono"
+                  href="https://t.me/nati0333"
+                  target="_blank"
+                  rel="noopener"
+                >
+
+                  TELEGRAM ↗
+
+                </a>
+
+
+                <a
+                  class="link mono"
+                  href="https://x.com/natty_jhon"
+                  target="_blank"
+                  rel="noopener"
+                >
+
+                  X / TWITTER ↗
+
+                </a>
+
+
+              </div>
+
+
+              <div class="wallet">
+
+
+                <div class="wallet-label mono">
+
+                  IF YOU'RE WEIRDLY GENEROUS — ETH
+
+                </div>
+
+
+                <div
+                  id="wallet"
+                  class="wallet-address mono"
+                  title="click to copy"
+                >
+
+                  0xC6A7119caA2389A66FA5c8E443533898e6E507f7
+
+                </div>
+
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+      </div>
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer mono">
+
+
+      <div>
+
+        ← / → to move
+
+      </div>
+
+
+      <div class="controls">
+
+
+        <button
+          class="arrow"
+          id="prev"
+          aria-label="Previous slide"
+        >
+
+          ←
+
+        </button>
+
+
+        <button
+          class="arrow"
+          id="next"
+          aria-label="Next slide"
+        >
+
+          →
+
+        </button>
+
+
+      </div>
+
+
+      <div>
+
+        <span id="year"></span>
+
+        /
+
+        whatever
+
+      </div>
+
+
+    </footer>
+
 
   </div>
 
-  <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b10_1px,transparent_1px),linear-gradient(to_bottom,#1e293b10_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none"></div>
+
+
+  <script>
+
+    /* =========================
+       SLIDES
+    ========================== */
+
+    const slides =
+      document.querySelectorAll(
+        ".slide"
+      );
+
+
+    const current =
+      document.getElementById(
+        "current"
+      );
+
+
+    let index = 0;
+
+
+    function showSlide(
+      newIndex
+    ) {
+
+      if (
+        newIndex < 0
+      ) {
+
+        newIndex =
+          slides.length - 1;
+
+      }
+
+
+      if (
+        newIndex >=
+        slides.length
+      ) {
+
+        newIndex = 0;
+
+      }
+
+
+      slides[index]
+        .classList
+        .remove("active");
+
+
+      index = newIndex;
+
+
+      slides[index]
+        .classList
+        .add("active");
+
+
+      current.textContent =
+        String(index + 1)
+          .padStart(2, "0");
+
+    }
+
+
+
+    /* =========================
+       BUTTONS
+    ========================== */
+
+    document
+      .getElementById("next")
+      .addEventListener(
+        "click",
+        () =>
+          showSlide(index + 1)
+      );
+
+
+    document
+      .getElementById("prev")
+      .addEventListener(
+        "click",
+        () =>
+          showSlide(index - 1)
+      );
+
+
+
+    /* =========================
+       KEYBOARD
+    ========================== */
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key ===
+          "ArrowRight"
+        ) {
+
+          showSlide(
+            index + 1
+          );
+
+        }
+
+
+        if (
+          event.key ===
+          "ArrowLeft"
+        ) {
+
+          showSlide(
+            index - 1
+          );
+
+        }
+
+      }
+    );
+
+
+
+    /* =========================
+       NAME CHAOS
+    ========================== */
+
+    const names = [
+
+      "NATE",
+      "NATI",
+      "NATHAN",
+      "NATTY",
+      "N8",
+      "NATE?",
+      "WHATEVER"
+
+    ];
+
+
+    const nameElement =
+      document.getElementById(
+        "name"
+      );
+
+
+    setInterval(() => {
+
+      const randomName =
+        names[
+          Math.floor(
+            Math.random() *
+            names.length
+          )
+        ];
+
+
+      nameElement.animate(
+
+        [
+
+          {
+            opacity: 0,
+
+            transform:
+              "translateY(10px)"
+          },
+
+          {
+            opacity: 1,
+
+            transform:
+              "translateY(0)"
+          }
+
+        ],
+
+        {
+
+          duration: 300,
+
+          easing:
+            "ease-out"
+
+        }
+
+      );
+
+
+      nameElement.textContent =
+        randomName;
+
+    }, 1200);
+
+
+
+    /* =========================
+       RANDOM THOUGHTS
+    ========================== */
+
+    const thoughts = [
+
+      "hmm.",
+      "bro.",
+      "nah.",
+      "wait...",
+      "what?",
+      "interesting.",
+      "no way.",
+      "probably BS.",
+      "hold on.",
+      "why?",
+      "okay.",
+      "lol.",
+      "that's crazy.",
+      "who approved this?",
+      "whatever.",
+      "let me cook.",
+      "uh oh.",
+      "idk man."
+
+    ];
+
+
+    const thought =
+      document.getElementById(
+        "thought"
+      );
+
+
+    setInterval(() => {
+
+      const randomThought =
+        thoughts[
+          Math.floor(
+            Math.random() *
+            thoughts.length
+          )
+        ];
+
+
+      thought.animate(
+
+        [
+
+          {
+            opacity: 0,
+
+            transform:
+              "translateY(8px)"
+          },
+
+          {
+            opacity: 1,
+
+            transform:
+              "translateY(0)"
+          }
+
+        ],
+
+        {
+          duration: 250
+        }
+
+      );
+
+
+      thought.textContent =
+        randomThought;
+
+    }, 1000);
+
+
+
+    /* =========================
+       WALLET COPY
+    ========================== */
+
+    const wallet =
+      document.getElementById(
+        "wallet"
+      );
+
+
+    wallet.addEventListener(
+      "click",
+      async () => {
+
+        const address =
+          wallet.textContent.trim();
+
+
+        try {
+
+          await navigator
+            .clipboard
+            .writeText(address);
+
+
+          wallet.textContent =
+            "COPIED. don't send your rent.";
+
+
+          setTimeout(() => {
+
+            wallet.textContent =
+              address;
+
+          }, 1800);
+
+
+        } catch {
+
+          wallet.textContent =
+            "copy failed. select it manually.";
+
+        }
+
+      }
+    );
+
+
+
+    /* =========================
+       YEAR
+    ========================== */
+
+    document
+      .getElementById("year")
+      .textContent =
+      new Date().getFullYear();
+
+  </script>
 
 </body>
 </html>
